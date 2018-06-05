@@ -21,6 +21,8 @@ AMainCharacter::AMainCharacter(const FObjectInitializer& ObjectInitializer) : Su
 void AMainCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+
+	UE_LOG(LogTemp, Warning, TEXT("AMainCharacter::BeginPlay()"));
 	//if (GEngine){
 	//	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, TEXT("We are using AMainCharacter!"));
 	//}
@@ -46,8 +48,7 @@ float AMainCharacter::GetSpeed() {
 
 
 float AMainCharacter::GetDirection() {
-	return GetActorRotation().Vector().Y
-		;
+	return GetActorRotation().Vector().Y;
 }
 
 // Called to bind functionality to input

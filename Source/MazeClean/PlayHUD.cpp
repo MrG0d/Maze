@@ -12,6 +12,7 @@
 APlayHUD::APlayHUD() {
 	static ConstructorHelpers::FObjectFinder<UFont> HUDFontOb(TEXT("/Engine/EngineFonts/RobotoDistanceField"));
 	HUDFont = HUDFontOb.Object;
+	UE_LOG(LogTemp, Warning, TEXT("HUD create"));
 }
 //APlayHUD::APlayHUD(const class FPostContstructInitializeProperties &PCIP){
 //	static ConstructorHelpers::FObjectFinder<UFont> HUDFontOb(TEXT("/Engine/EngineFonts/RobotoDistanceField"));
@@ -28,8 +29,14 @@ void APlayHUD::DrawHUD()
 
 	// Get the character and print its power level.
 	AMainCharacter * Character = Cast<AMainCharacter>(UGameplayStatics::GetPlayerPawn(this, 0));
-	FString PowerLevelString = FString::Printf(TEXT("%10.1f"), FMath::Abs(Character->GetSpeed()));
-	DrawText(PowerLevelString, FColor::Black, 50, 50, HUDFont);
+	if (Character != NULL) {
+		FString Speed = FString::Printf(TEXT("Speed: %10.1f"), FMath::Abs(Character->GetSpeed()));
+		DrawText(Speed, FColor::Black, 10, 50, HUDFont);
+
+
+		FString Direction = FString::Printf(TEXT("Direction: %10.1f"), FMath::Abs(Character->GetDirection()));
+		DrawText(Direction, FColor::Black, 10, 75, HUDFont);
+	}
 
 	//AMazeCleanGameModeBase* GameMode = Cast<AMazeCleanGameModeBase>(UGameplayStatics::GetGameMode(this));
 

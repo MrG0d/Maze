@@ -31,8 +31,21 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Camera)
 		UCameraComponent* CameraComponent;
 
+	UFUNCTION()
+		float GetSpeed();
+
+	UFUNCTION()
+		void SetSpeed(float speed);
+
+
+	UFUNCTION()
+		float GetDirection();
+
 
 private:
+
+	float speed;
+
 	 //handles moving forward/backward
     UFUNCTION()
 		void MoveForward(float Val);
@@ -45,4 +58,8 @@ private:
 	//clears jump flag when key is released
 	UFUNCTION()
 		void OnStopJump();
+
+	//void test();
+
+	//void ppf();
 };

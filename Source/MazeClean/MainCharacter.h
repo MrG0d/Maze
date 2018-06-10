@@ -28,18 +28,14 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	/** Camera */
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Camera)
-		UCameraComponent* CameraComponent;
+	//UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Camera)
+		//UCameraComponent* CameraComponent;
 
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 		float GetSpeed();
 
 	UFUNCTION()
 		void SetSpeed(float speed);
-
-
-	UFUNCTION()
-		float GetDirection();
 
 
 private:

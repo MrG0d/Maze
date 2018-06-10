@@ -34,8 +34,8 @@ void APlayHUD::DrawHUD()
 		DrawText(Speed, FColor::Black, 10, 50, HUDFont);
 
 
-		FString Direction = FString::Printf(TEXT("Direction: %10.1f"), FMath::Abs(Character->GetDirection()));
-		DrawText(Direction, FColor::Black, 10, 75, HUDFont);
+		//FString Direction = FString::Printf(TEXT("Direction: %10.1f"), FMath::Abs(Character->GetDirection()));
+		//DrawText(Direction, FColor::Black, 10, 75, HUDFont);
 	}
 
 	//AMazeCleanGameModeBase* GameMode = Cast<AMazeCleanGameModeBase>(UGameplayStatics::GetGameMode(this));

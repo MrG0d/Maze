@@ -9,12 +9,14 @@
 AMainCharacter::AMainCharacter(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
-	CameraComponent = ObjectInitializer.CreateDefaultSubobject<UCameraComponent>(this, TEXT("FirstPersonCamera"));
-	CameraComponent->SetupAttachment(GetMesh(), FName(TEXT("head")));
+	//CameraComponent = ObjectInitializer.CreateDefaultSubobject<UCameraComponent>(this, TEXT("FirstPersonCamera"));
+	//CameraComponent->SetupAttachment(GetMesh(), FName(TEXT("head")));
+	//CameraComponent->SetupAttachment(GetMesh());
+	//CameraComponent->SetupAttachment(GetCapsuleComponent());
 	 //Position the camera a bit above the eyes
-	CameraComponent->RelativeLocation = FVector(-90, 0, 80);
+	//CameraComponent->RelativeLocation = FVector(-90, 0, 80);
 	 //Allow the pawn to control rotation.
-	CameraComponent->bUsePawnControlRotation = true;
+	//CameraComponent->bUsePawnControlRotation = true;
 }
 
 // Called when the game starts or when spawned
@@ -32,9 +34,10 @@ void AMainCharacter::BeginPlay()
 void AMainCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
-	SetSpeed(FVector::DotProduct(GetVelocity(), GetActorRotation().Vector()));
-
+	FVector direction;
+	float speed;
+	GetVelocity().ToDirectionAndLength(direction, speed);
+	SetSpeed(speed);
 }
 
 void AMainCharacter::SetSpeed(float speed) {
@@ -47,9 +50,9 @@ float AMainCharacter::GetSpeed() {
 }
 
 
-float AMainCharacter::GetDirection() {
-	return GetActorRotation().Vector().Y;
-}
+//float AMainCharacter::GetDirection() {
+//	return GetActorRotation().Vector().Y;
+//}
 
 // Called to bind functionality to input
 void AMainCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -109,14 +112,3 @@ void AMainCharacter::OnStopJump()
 {
 	bPressedJump = false;
 }
-
-
-//void AMainCharacter::test()
-//{
-//	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, TEXT("Jump"));
-//}
-//
-//void AMainCharacter::ppf()
-//{
-//	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, TEXT("Jump"));
-//}

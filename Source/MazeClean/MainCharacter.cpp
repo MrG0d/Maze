@@ -58,12 +58,12 @@ float AMainCharacter::GetSpeed() {
 void AMainCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
-	PlayerInputComponent->BindAxis("MoveForward", this, &AMainCharacter::MoveForward);
-	PlayerInputComponent->BindAxis("MoveRight", this, &AMainCharacter::MoveRight);
-	PlayerInputComponent->BindAxis("Turn", this, &AMainCharacter::AddControllerYawInput);
-	PlayerInputComponent->BindAxis("LookUp", this, &AMainCharacter::AddControllerPitchInput);
-	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &AMainCharacter::OnStartJump);
-	PlayerInputComponent->BindAction("Jump", IE_Released, this, &AMainCharacter::OnStopJump);
+	//PlayerInputComponent->BindAxis("MoveForward", this, &AMainCharacter::MoveForward);
+	//PlayerInputComponent->BindAxis("MoveRight", this, &AMainCharacter::MoveRight);
+	//PlayerInputComponent->BindAxis("Turn", this, &AMainCharacter::AddControllerYawInput);
+	//PlayerInputComponent->BindAxis("LookUp", this, &AMainCharacter::AddControllerPitchInput);
+	//PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &AMainCharacter::OnStartJump);
+	//PlayerInputComponent->BindAction("Jump", IE_Released, this, &AMainCharacter::OnStopJump);
 }
 
 void AMainCharacter::MoveForward(float Value)
